@@ -1,12 +1,14 @@
-using Microsoft.AspCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Factory.Models;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 
 namespace Factory.Controllers
 {
-  public class EngineerController : Controller
+  public class EngineersController : Controller
   {
     private readonly FactoryContext _db;
 
@@ -93,7 +95,7 @@ namespace Factory.Controllers
     {
       if (MachineId != 0)
       {
-        _db.EngineerMachine.Add(new EngineerMachine() { MachnineId = MachnineId, EngineerId = engineer.EngineerId });
+        _db.EngineerMachine.Add(new EngineerMachine() { MachineId = MachineId, EngineerId = engineer.EngineerId });
         _db.SaveChanges();
       }
       return RedirectToAction("Index");

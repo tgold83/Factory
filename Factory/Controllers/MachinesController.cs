@@ -72,15 +72,15 @@ namespace Factory.Controllers
 
     public ActionResult Delete(int id)
     {
-      Machine thisMachine = _db.Machines.FirstOrDefault(machine => machine.machineId == id);
-      return View(thismachine);
+      Machine thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);
+      return View(thisMachine);
     }
 
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
-      machine thismachine = _db.machines.FirstOrDefault(machine => machine.machineId == id);
-      _db.machines.Remove(thismachine);
+      Machine thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);
+      _db.Machines.Remove(thisMachine);
       _db.SaveChanges();
       return RedirectToAction("Index");
     } 
@@ -96,7 +96,7 @@ namespace Factory.Controllers
     
     public ActionResult AddEngineer(int id)
     {
-      var thismachine = _db.machines.FirstOrDefault(machine => machine.MachineId == id);
+      var thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);
       ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Name");
       return View(thisMachine);
     }
