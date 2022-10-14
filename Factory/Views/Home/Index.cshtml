@@ -4,5 +4,23 @@
 
 <h1>Welcome to Dr. Sillystringz's Factory Repair Site!</h1>
 
+<h3>Current Engineers:</h3>
+
+@using Factory.Models
+<ul>
+  @foreach(Engineer engineer in ViewBag.Engineers)
+  {
+    <li>@Html.Label($"{engineer.Name}")</li>
+  }
+</ul>
 <p>@Html.ActionLink("See all Engineers", "Index", "Engineers")</p>
+
+<h3> Current Machines:</h3>
+
+<ul>
+  @foreach(Machine machine in ViewBag.Machines)
+  {
+    <li>@Html.Label($"{machine.Title}")</li>
+  }
+</ul>
 <p>@Html.ActionLink("See all Machines", "Index", "Machines")</p>
